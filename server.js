@@ -3,7 +3,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
-const axios = require('axios');
 const request = require('request');
 const VM_URL = process.env.MAIN_HOST || 'https://ac0becfc.ngrok.io';
 
