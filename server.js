@@ -7,7 +7,7 @@ const app = express();
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(__dirname+'/'));
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 4003;
 
 app.get('/', async (req, res) => res.sendFile(__dirname+'index.html'));
 
