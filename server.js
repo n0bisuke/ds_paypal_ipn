@@ -1,5 +1,6 @@
 'use strict';
 
+//サンプル用途 https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=FYZTHBMZWHSTG
 const express = require('express');
 const bodyParser = require('body-parser');
 const app = express();
@@ -16,18 +17,14 @@ app.get('/', async (req, res) => res.sendFile(__dirname+'index.html'));
 //一次受け WebApps
 app.post('/ipn_webapps', async (req, res) => {
     await request.post(VM_URL+'/ipn_vm').form(req.body);
-    const response = {message: 'Success!'};
-    res.end(JSON.stringify(response));
+    res.end(JSON.stringify({message: 'Success!'}));
 });
 
 //実際の中身
 app.post('/ipn_vm', async (req, res) => {
     console.log(req.body); //PayPalから送られて来る情報の確認
-
-    const response = {
-        message: 'Success!'
-    };
-    res.end(JSON.stringify(response));
+    const response = {message: 'Success!'};
+    res.end(JSON.stringify({message: 'Success!'}));
 });
 
 app.listen(PORT);
